@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './Api';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+
+state={
+  transferencia:[]
+}
+
+async componentDidMount(){
+  const response = await api.get('');
+
+  console.log(response.data);
+
+  this.setState({transferencia: response.data})
+}
+  render(){
+    return(
+      <div>
+
+      </div>
+    );
+  }
 }
 
 export default App;
